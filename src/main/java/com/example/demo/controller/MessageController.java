@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.beans.Message;
 import com.example.demo.config.MongoDBConnector;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,8 @@ public class MessageController {
 
     @GetMapping("/")
     public List<Message> getMessages(){
+        mongoRepository.save(new Message("title", "body"));
+        mongoRepository.save(new Message("title2", "body2"));
         return mongoRepository.findAll();
     }
 

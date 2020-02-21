@@ -1,9 +1,10 @@
 package com.example.demo.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 import org.springframework.data.annotation.Id;
 
-public class Message {
+public class Message implements Serializable {
 
     @Id
     private String id;
